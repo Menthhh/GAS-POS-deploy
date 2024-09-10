@@ -73,8 +73,12 @@ function ReportSearch({
     setSearchState({
       year: year,
       month: month,
-      startDate: dayjs(startDate).isValid() ? dayjs(startDate).toDate() : null,
-      endDate: dayjs(endDate).isValid() ? dayjs(endDate).toDate() : null,
+      startDate: dayjs(startDate).isValid() 
+        ? dayjs(startDate).year(dayjs(startDate).year() + 543).toDate() 
+        : null,
+      endDate: dayjs(endDate).isValid() 
+        ? dayjs(endDate).year(dayjs(endDate).year() + 543).toDate() 
+        : null,
       vendor: vendorSelect,
     });
   };

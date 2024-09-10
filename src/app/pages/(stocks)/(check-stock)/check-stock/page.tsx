@@ -42,8 +42,8 @@ function ProductEditPage() {
   const { checkStock } = useFetchCheckStock(refresh);  
   const [searchQuery, setSearchQuery] = useState("");
   const [dateFilter, setDateFilter] = useState({
-    fromDate: "",
-    toDate: formatDate(new Date()),
+    fromDate: formatDate(new Date()),
+    toDate: "",
   });
   const [isShowDeleteOne, setIsShowDeleteOne] = useState(false);
   const [isShowDeleteAll, setIsShowDeleteAll] = useState(false);
