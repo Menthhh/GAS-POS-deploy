@@ -340,14 +340,13 @@ const Navbar = ({ isOpen, CurrentPage, SubPage }: NavbarProps) => {
           />
         </div>
         <Link
-          href="/pages/customer"
+          href="/pages/monthly-checkout"
           className={`flex justify-start items-center gap-3 p-3 hover:rounded-lg hover:bg-[#347EC2] relative w-full  ${
             CurrentPage === "ปิดประจำเดือน" ? "bg-[#347EC2] rounded-lg" : ""
           }`}
         >
           <PeopleAltIcon className="-translate-y-[2px] " />
           <p className="">ปิดประจำเดือน</p>
-          <p className="absolute right-0 pr-2 text-lg"> {">"} </p>
         </Link>
       </div>
       <div className="flex justify-start gap-3 items-center mt-auto mb-6 border-t border-solid border-white pt-4 font-ibm-plex-sans-thai text-white font-bold pl-8 cursor-pointer">

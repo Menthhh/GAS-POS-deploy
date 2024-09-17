@@ -26,7 +26,9 @@ const config: Config = {
         'tableColor':"#347EC2",
         'third':'#5E5F5F',
         'buttonOutline':'#878787',
-        'textInput':'#F8FFA2'
+        'textInput': '#F8FFA2',
+        'outlined': '#C6C6C6',
+        'textPrimary': '#001C64',
 
       },
       fontFamily: {
