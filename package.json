@@ -15,6 +15,7 @@
     "@date-io/moment": "1.x",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@heroicons/react": "^2.1.5",
     "@material-ui/pickers": "^3.3.11",
     "@mui/icons-material": "^5.15.15",
     "@mui/lab": "^5.0.0-alpha.171",

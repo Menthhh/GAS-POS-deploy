@@ -180,11 +180,56 @@ const CustomerSubmenu = ({ isOpen, CurrentPage, SubPage }: NavbarProps) => {
   );
 };
 
+const SaleSubmenu = ({ isOpen, CurrentPage, SubPage }: NavbarProps) => {
+  if (!isOpen) return null;
+  return (
+    <div className="mt-1 ml-7 flex flex-col gap-1">
+      <Link
+        href="/pages/cash-bill"
+        className={`flex justify-start items-center gap-3 p-2 hover:rounded-lg hover:bg-[#347EC2] ${
+          SubPage === "บิลเงินสด" ? "bg-[#347EC2] rounded-lg" : ""
+        }`}
+      >
+        <CircleIcon
+          className="-translate-y-[2px]"
+          sx={{ color: "#B1D8FB", height: "14px" }}
+        />
+        <p>บิลเงินสด</p>
+      </Link>
+      <Link
+        href="#"
+        className={`flex justify-start items-center gap-3 p-2 hover:rounded-lg hover:bg-[#347EC2] ${
+          SubPage === "ใบส่งสินค้า" ? "bg-[#347EC2] rounded-lg" : ""
+        }`}
+      >
+        <CircleIcon
+          className="-translate-y-[2px]"
+          sx={{ color: "#B1D8FB", height: "14px" }}
+        />
+        <p>ใบส่งสินค้า</p>
+      </Link>
+      <Link
+        href="#"
+        className={`flex justify-start items-center gap-3 p-2 hover:rounded-lg hover:bg-[#347EC2] ${
+          SubPage === "ใบยืมถังลูกค้า" ? "bg-[#347EC2] rounded-lg" : ""
+        }`}
+      >
+        <CircleIcon
+          className="-translate-y-[2px]"
+          sx={{ color: "#B1D8FB", height: "14px" }}
+        />
+        <p>ใบยืมถังลูกค้า</p>
+      </Link>
+    </div>
+  );
+};
+
 const Navbar = ({ isOpen, CurrentPage, SubPage }: NavbarProps) => {
   const [isSupplierSubmenuOpen, setSupplierSubmenuOpen] = useState(false);
   const [isStockSubmenuOpen, setStockSubmenuOpen] = useState(false);
   const [isCustomerSubmenuOpen, setCustomerSubmenuOpen] = useState(false);
   const [isReportSubmenuOpen, setReportSubmenuOpen] = useState(false);
+  const [isSaleSubmenuOpen, setSaleSubmenuOpen] = useState(false);
 
   return (
     <nav
@@ -210,15 +255,30 @@ const Navbar = ({ isOpen, CurrentPage, SubPage }: NavbarProps) => {
           <PeopleIcon className="-translate-y-[2px] " />
           <p className="">หน้าหลัก</p>
         </Link>
-        <Link
-          href="/pages/information/intializing"
-          className={`flex justify-start items-center gap-3 p-3 hover:rounded-lg hover:bg-[#347EC2] relative w-full  ${
-            CurrentPage === "งานขาย" ? "bg-[#347EC2] rounded-lg" : ""
-          }`}
-        >
-          <ReceiptLongIcon className="-translate-y-[2px] " />
-          <p className="">งานขาย</p>
-        </Link>
+        <div className={`flex flex-col w-full`}>
+          <button
+            onClick={() => {
+              setSaleSubmenuOpen(!isSaleSubmenuOpen);
+            }}
+            className={`flex justify-start items-center gap-3 p-3 hover:rounded-lg hover:bg-[#347EC2] relative w-full ${
+              CurrentPage === "" ? "bg-[#347EC2] rounded-lg" : ""
+            }`}
+          >
+            <InventoryIcon className="-translate-y-[2px] " />
+            <p className="">งานขาย</p>
+            {isSaleSubmenuOpen ? (
+              <ExpandMoreIcon className="absolute right-0 mr-1 h-6 w-6" />
+            ) : (
+              <p className="absolute right-0 pr-2 text-lg"> {">"} </p>
+            )}
+          </button>
+          <SaleSubmenu
+            isOpen={isSaleSubmenuOpen}
+            CurrentPage={CurrentPage}
+            SubPage={SubPage}
+          />
+        </div>
+        
         <Link
           href="/pages/product"
           className={`flex justify-start items-center gap-3 p-3 hover:rounded-lg hover:bg-[#347EC2] relative w-full  ${
